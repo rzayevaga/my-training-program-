@@ -308,12 +308,30 @@
             color: var(--primary);
         }
 
-        /* Animations */
+        /* Exercise Animations Container */
+        .exercises-section {
+            padding: 5rem 5%;
+        }
+
+        .exercise-demo {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
         .animation-container {
             background: rgba(0, 0, 0, 0.2);
             border-radius: 15px;
             padding: 2rem;
-            margin: 2rem 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -321,6 +339,13 @@
         }
 
         /* Specific Exercise Animations */
+        .human-figure {
+            position: relative;
+            width: 200px;
+            height: 300px;
+        }
+
+        /* Push-up Animation */
         .pushup-animation {
             width: 200px;
             height: 200px;
@@ -376,6 +401,260 @@
             0%, 30% { transform: rotate(-10deg); }
             40%, 70% { transform: rotate(-70deg); }
             80%, 100% { transform: rotate(-10deg); }
+        }
+
+        /* Squat Animation */
+        .squat-animation {
+            width: 200px;
+            height: 250px;
+            position: relative;
+        }
+
+        .squat-torso {
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            background: var(--primary);
+            border-radius: 10px 10px 0 0;
+            top: 50px;
+            left: 60px;
+        }
+
+        .squat-head {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            border-radius: 50%;
+            top: 0;
+            left: 75px;
+        }
+
+        .squat-leg {
+            position: absolute;
+            width: 20px;
+            height: 100px;
+            background: var(--accent);
+            border-radius: 10px;
+            top: 150px;
+        }
+
+        .squat-leg.left {
+            left: 75px;
+            animation: squat-left 3s infinite ease-in-out;
+        }
+
+        .squat-leg.right {
+            right: 75px;
+            animation: squat-right 3s infinite ease-in-out;
+        }
+
+        @keyframes squat-left {
+            0%, 30% { transform: translateY(0) rotate(0); }
+            40%, 70% { transform: translateY(40px) rotate(15deg); }
+            80%, 100% { transform: translateY(0) rotate(0); }
+        }
+
+        @keyframes squat-right {
+            0%, 30% { transform: translateY(0) rotate(0); }
+            40%, 70% { transform: translateY(40px) rotate(-15deg); }
+            80%, 100% { transform: translateY(0) rotate(0); }
+        }
+
+        /* Lunge Animation */
+        .lunge-animation {
+            width: 200px;
+            height: 250px;
+            position: relative;
+        }
+
+        .lunge-torso {
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            background: var(--primary);
+            border-radius: 10px 10px 0 0;
+            top: 50px;
+            left: 60px;
+        }
+
+        .lunge-head {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            border-radius: 50%;
+            top: 0;
+            left: 75px;
+        }
+
+        .lunge-leg {
+            position: absolute;
+            width: 20px;
+            height: 100px;
+            background: var(--accent);
+            border-radius: 10px;
+            top: 150px;
+        }
+
+        .lunge-leg.left {
+            left: 75px;
+            animation: lunge-left 3s infinite ease-in-out;
+        }
+
+        .lunge-leg.right {
+            right: 75px;
+            animation: lunge-right 3s infinite ease-in-out;
+        }
+
+        @keyframes lunge-left {
+            0%, 30% { transform: translateY(0) rotate(0); }
+            40%, 70% { transform: translateY(20px) rotate(15deg); }
+            80%, 100% { transform: translateY(0) rotate(0); }
+        }
+
+        @keyframes lunge-right {
+            0%, 30% { transform: translateY(0) rotate(0); }
+            40%, 70% { transform: translateY(-20px) rotate(-15deg); }
+            80%, 100% { transform: translateY(0) rotate(0); }
+        }
+
+        /* Bench Press Animation */
+        .benchpress-animation {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        .benchpress-body {
+            position: absolute;
+            width: 120px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 10px;
+            top: 100px;
+            left: 40px;
+        }
+
+        .benchpress-arm {
+            position: absolute;
+            width: 15px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 7px;
+            top: 60px;
+        }
+
+        .benchpress-arm.left {
+            left: 60px;
+            animation: benchpress-left 3s infinite ease-in-out;
+        }
+
+        .benchpress-arm.right {
+            right: 60px;
+            animation: benchpress-right 3s infinite ease-in-out;
+        }
+
+        .benchpress-weight {
+            position: absolute;
+            width: 30px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 5px;
+        }
+
+        .benchpress-weight.left {
+            top: 50px;
+            left: 50px;
+            animation: benchpress-weight-left 3s infinite ease-in-out;
+        }
+
+        .benchpress-weight.right {
+            top: 50px;
+            right: 50px;
+            animation: benchpress-weight-right 3s infinite ease-in-out;
+        }
+
+        @keyframes benchpress-left {
+            0%, 30% { height: 60px; }
+            40%, 70% { height: 40px; }
+            80%, 100% { height: 60px; }
+        }
+
+        @keyframes benchpress-right {
+            0%, 30% { height: 60px; }
+            40%, 70% { height: 40px; }
+            80%, 100% { height: 60px; }
+        }
+
+        @keyframes benchpress-weight-left {
+            0%, 30% { top: 50px; }
+            40%, 70% { top: 70px; }
+            80%, 100% { top: 50px; }
+        }
+
+        @keyframes benchpress-weight-right {
+            0%, 30% { top: 50px; }
+            40%, 70% { top: 70px; }
+            80%, 100% { top: 50px; }
+        }
+
+        /* Plank Animation */
+        .plank-animation {
+            width: 200px;
+            height: 150px;
+            position: relative;
+        }
+
+        .plank-body {
+            position: absolute;
+            width: 120px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 10px;
+            top: 70px;
+            left: 40px;
+            animation: plank 3s infinite ease-in-out;
+        }
+
+        .plank-arm {
+            position: absolute;
+            width: 15px;
+            height: 50px;
+            background: var(--secondary);
+            border-radius: 7px;
+            top: 30px;
+        }
+
+        .plank-arm.left {
+            left: 60px;
+        }
+
+        .plank-arm.right {
+            right: 60px;
+        }
+
+        .plank-leg {
+            position: absolute;
+            width: 15px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 7px;
+            top: 90px;
+        }
+
+        .plank-leg.left {
+            left: 60px;
+        }
+
+        .plank-leg.right {
+            right: 60px;
+        }
+
+        @keyframes plank {
+            0%, 30% { transform: translateY(0); }
+            40%, 70% { transform: translateY(-5px); }
+            80%, 100% { transform: translateY(0); }
         }
 
         /* Footer */
@@ -440,6 +719,14 @@
             
             .section-title {
                 font-size: 2rem;
+            }
+            
+            .animation-container {
+                min-height: 250px;
+            }
+            
+            .human-figure {
+                transform: scale(0.8);
             }
         }
     </style>
@@ -521,7 +808,7 @@
                     <ul class="exercise-list">
                         <li class="exercise-item">
                             <div class="exercise-icon">
-                                <i class="fas fa-fire"></i>
+                                <i class="fas fa-dumbbell"></i>
                             </div>
                             <div class="exercise-info">
                                 <h4>Dambell Bench Press</h4>
@@ -530,7 +817,7 @@
                         </li>
                         <li class="exercise-item">
                             <div class="exercise-icon">
-                                <i class="fas fa-fire"></i>
+                                <i class="fas fa-dumbbell"></i>
                             </div>
                             <div class="exercise-info">
                                 <h4>Dambell Sıraçəkma</h4>
@@ -543,6 +830,33 @@
                             </div>
                             <div class="exercise-info">
                                 <h4>Push-Up</h4>
+                                <p>3 set x maksimum</p>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="exercise-info">
+                                <h4>Dambell Çiyin Pressi</h4>
+                                <p>3 set x 10-15 təkrarlar</p>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="exercise-info">
+                                <h4>Dambell Biceps Qatlaması</h4>
+                                <p>3 set x 10-15 təkrarlar</p>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-icon">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <div class="exercise-info">
+                                <h4>Dips</h4>
                                 <p>3 set x maksimum</p>
                             </div>
                         </li>
@@ -560,7 +874,7 @@
                     <ul class="exercise-list">
                         <li class="exercise-item">
                             <div class="exercise-icon">
-                                <i class="fas fa-fire"></i>
+                                <i class="fas fa-walking"></i>
                             </div>
                             <div class="exercise-info">
                                 <h4>Ağısqarma (Squat)</h4>
@@ -569,7 +883,7 @@
                         </li>
                         <li class="exercise-item">
                             <div class="exercise-icon">
-                                <i class="fas fa-fire"></i>
+                                <i class="fas fa-walking"></i>
                             </div>
                             <div class="exercise-info">
                                 <h4>Lunge</h4>
@@ -578,11 +892,29 @@
                         </li>
                         <li class="exercise-item">
                             <div class="exercise-icon">
-                                <i class="fas fa-fire"></i>
+                                <i class="fas fa-shoe-prints"></i>
                             </div>
                             <div class="exercise-info">
                                 <h4>Qalxancaq</h4>
                                 <p>4 set x 15-20 təkrarlar</p>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="exercise-info">
+                                <h4>Qarın Presi</h4>
+                                <p>3 set x 15-20 təkrarlar</p>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="exercise-info">
+                                <h4>Plank</h4>
+                                <p>3 set x 30-60 saniyə</p>
                             </div>
                         </li>
                     </ul>
@@ -608,7 +940,7 @@
                         </li>
                         <li class="exercise-item">
                             <div class="exercise-icon">
-                                <i class="fas fa-fire"></i>
+                                <i class="fas fa-dumbbell"></i>
                             </div>
                             <div class="exercise-info">
                                 <h4>Dambell Tərəf qaldırma</h4>
@@ -617,11 +949,38 @@
                         </li>
                         <li class="exercise-item">
                             <div class="exercise-icon">
-                                <i class="fas fa-fire"></i>
+                                <i class="fas fa-dumbbell"></i>
                             </div>
                             <div class="exercise-info">
                                 <h4>Reverse Grip Sıraçəkma</h4>
                                 <p>3 set x 10-12 təkrarlar</p>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="exercise-info">
+                                <h4>Çiyin qaldırma</h4>
+                                <p>3 set x 10-15 təkrarlar</p>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="exercise-info">
+                                <h4>Triceps Extension</h4>
+                                <p>3 set x 12-15 təkrarlar</p>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-icon">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <div class="exercise-info">
+                                <h4>Superman</h4>
+                                <p>3 set x 12-15 təkrarlar</p>
                             </div>
                         </li>
                     </ul>
@@ -638,7 +997,7 @@
                     <ul class="exercise-list">
                         <li class="exercise-item">
                             <div class="exercise-icon">
-                                <i class="fas fa-fire"></i>
+                                <i class="fas fa-walking"></i>
                             </div>
                             <div class="exercise-info">
                                 <h4>Bulgarian Split Squat</h4>
@@ -647,7 +1006,7 @@
                         </li>
                         <li class="exercise-item">
                             <div class="exercise-icon">
-                                <i class="fas fa-fire"></i>
+                                <i class="fas fa-walking"></i>
                             </div>
                             <div class="exercise-info">
                                 <h4>Qalça qaldırma</h4>
@@ -656,11 +1015,29 @@
                         </li>
                         <li class="exercise-item">
                             <div class="exercise-icon">
-                                <i class="fas fa-fire"></i>
+                                <i class="fas fa-shoe-prints"></i>
+                            </div>
+                            <div class="exercise-info">
+                                <h4>Yan qaldırma</h4>
+                                <p>3 set x 12-15 təkrarlar</p>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-icon">
+                                <i class="fas fa-clock"></i>
                             </div>
                             <div class="exercise-info">
                                 <h4>Yan Plank</h4>
                                 <p>3 set x 20-30 saniyə</p>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="exercise-info">
+                                <h4>Russian Twist</h4>
+                                <p>3 set x 20 təkrarlar</p>
                             </div>
                         </li>
                     </ul>
@@ -670,13 +1047,129 @@
     </section>
 
     <!-- Exercise Animations -->
-    <section id="exercises" class="schedule">
+    <section id="exercises" class="exercises-section">
         <h2 class="section-title">Hərəkət Animasiyaları</h2>
-        <div class="animation-container">
-            <div class="pushup-animation">
-                <div class="pushup-arm left"></div>
-                <div class="pushup-body"></div>
-                <div class="pushup-arm right"></div>
+        
+        <!-- Push-up Animation -->
+        <div class="exercise-demo">
+            <div class="exercise-header">
+                <h3>Push-Up</h3>
+                <div class="exercise-info">
+                    <p><strong>Set:</strong> 3 | <strong>Təkrarlar:</strong> Maksimum | <strong>Dincəlmə:</strong> 60s</p>
+                </div>
+            </div>
+            <div class="animation-container">
+                <div class="pushup-animation">
+                    <div class="pushup-arm left"></div>
+                    <div class="pushup-body"></div>
+                    <div class="pushup-arm right"></div>
+                </div>
+            </div>
+            <p>Düz bir xətt təşkil edərək bədəninizi aşağı salın və sonra yuxarı itələyin. Əlləriniz çiyinlərindən bir qədər geniş olmalıdır.</p>
+        </div>
+        
+        <!-- Squat Animation -->
+        <div class="exercise-demo">
+            <div class="exercise-header">
+                <h3>Ağısqarma (Squat)</h3>
+                <div class="exercise-info">
+                    <p><strong>Set:</strong> 4 | <strong>Təkrarlar:</strong> 12-15 | <strong>Dincəlmə:</strong> 60-90s</p>
+                </div>
+            </div>
+            <div class="animation-container">
+                <div class="squat-animation">
+                    <div class="squat-head"></div>
+                    <div class="squat-torso"></div>
+                    <div class="squat-leg left"></div>
+                    <div class="squat-leg right"></div>
+                </div>
+            </div>
+            <p>Ayaqlarınız çiyin genişliyində açıq, sinəniz dik, qollarınız qarşınızda uzadılmış şəkildə, omba hissənizlə dizləriniz 90 dərəcə bucaq alana qədər aşağı enin.</p>
+        </div>
+        
+        <!-- Lunge Animation -->
+        <div class="exercise-demo">
+            <div class="exercise-header">
+                <h3>Lunge</h3>
+                <div class="exercise-info">
+                    <p><strong>Set:</strong> 3 | <strong>Təkrarlar:</strong> 10-12 (hər ayaq) | <strong>Dincəlmə:</strong> 60s</p>
+                </div>
+            </div>
+            <div class="animation-container">
+                <div class="lunge-animation">
+                    <div class="lunge-head"></div>
+                    <div class="lunge-torso"></div>
+                    <div class="lunge-leg left"></div>
+                    <div class="lunge-leg right"></div>
+                </div>
+            </div>
+            <p>Bir ayaqla irəli addım atın və hər iki dizinizi 90 dərəcə bucaq alana qədər bükün. Arxa diziniz yerə deməməlidir. Başlanğıc mövqeyinə qayıdın və təkrarlayın.</p>
+        </div>
+        
+        <!-- Bench Press Animation -->
+        <div class="exercise-demo">
+            <div class="exercise-header">
+                <h3>Dambell Bench Press</h3>
+                <div class="exercise-info">
+                    <p><strong>Set:</strong> 3 | <strong>Təkrarlar:</strong> 8-12 | <strong>Dincəlmə:</strong> 60-90s</p>
+                </div>
+            </div>
+            <div class="animation-container">
+                <div class="benchpress-animation">
+                    <div class="benchpress-arm left"></div>
+                    <div class="benchpress-body"></div>
+                    <div class="benchpress-arm right"></div>
+                    <div class="benchpress-weight left"></div>
+                    <div class="benchpress-weight right"></div>
+                </div>
+            </div>
+            <p>Döş səviyyəsində dambelləri tutaraq, qollarınızı tam şəkildə uzadın. Dambellləri aşağı salaraq sinə hündürlüyünə gətirin, sonra yenidən yuxarı itələyin.</p>
+        </div>
+        
+        <!-- Plank Animation -->
+        <div class="exercise-demo">
+            <div class="exercise-header">
+                <h3>Plank</h3>
+                <div class="exercise-info">
+                    <p><strong>Set:</strong> 3 | <strong>Müddət:</strong> 30-60s | <strong>Dincəlmə:</strong> 45s</p>
+                </div>
+            </div>
+            <div class="animation-container">
+                <div class="plank-animation">
+                    <div class="plank-arm left"></div>
+                    <div class="plank-arm right"></div>
+                    <div class="plank-body"></div>
+                    <div class="plank-leg left"></div>
+                    <div class="plank-leg right"></div>
+                </div>
+            </div>
+            <p>Dirsekləriniz və ayaq uclarıınızın üstündə dayanaraq bədəninizi düz bir xətt şəklində saxlayın. Qarın əzələlərinizi gərgin saxlayın və belinizi aşağı salmamağa diqqət edin.</p>
+        </div>
+    </section>
+
+    <!-- Nutrition Section -->
+    <section id="nutrition" class="personal-info">
+        <h2 class="section-title">Qidalanma Tövsiyələri</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-apple-alt"></i>
+                <h3>Protein</h3>
+                <p>Gündə 1.6-2.0 q/kq (104-130 q)</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-tint"></i>
+                <h3>Su</h3>
+                <p>Gündə 2-3 litr su için</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-carrot"></i>
+                <h3>Karbohidratlar</h3>
+                <p>Məşqdən 30 dəq əvvəl yüngül karbohidrat</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Vaxtlama</h3>
+                <p>Məşqdən 1-1.5 saat əvvəl yemək yeyin</p>
             </div>
         </div>
     </section>
@@ -758,7 +1251,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.day-card, .info-card').forEach(card => {
+        document.querySelectorAll('.day-card, .info-card, .exercise-demo').forEach(card => {
             card.style.opacity = '0';
             observer.observe(card);
         });
