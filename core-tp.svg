@@ -1,0 +1,301 @@
+<svg viewBox="0 0 1200 2000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4ECDC4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#45B7D1;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#00000020"/>
+    </filter>
+    
+    <!-- Animation definitions -->
+    <g id="pushup-anim">
+      <circle cx="20" cy="15" r="5" fill="#FFD93D"/>
+      <rect x="15" y="18" width="10" height="20" fill="#6BCF7F" rx="2">
+        <animateTransform attributeName="transform" 
+                         attributeType="XML" 
+                         type="translate"
+                         values="0,0; 0,-5; 0,0"
+                         dur="2s"
+                         repeatCount="indefinite"/>
+      </rect>
+      <rect x="12" y="35" width="16" height="3" fill="#4A90E2" rx="1"/>
+    </g>
+    
+    <g id="squat-anim">
+      <circle cx="20" cy="10" r="5" fill="#FFD93D"/>
+      <rect x="15" y="13" width="10" height="20" fill="#6BCF7F" rx="2">
+        <animateTransform attributeName="transform" 
+                         attributeType="XML" 
+                         type="translate"
+                         values="0,0; 0,8; 0,0"
+                         dur="2.5s"
+                         repeatCount="indefinite"/>
+      </rect>
+      <rect x="10" y="30" width="8" height="15" fill="#4A90E2" rx="1"/>
+      <rect x="22" y="30" width="8" height="15" fill="#4A90E2" rx="1"/>
+    </g>
+    
+    <g id="dumbbell-anim">
+      <circle cx="20" cy="15" r="5" fill="#FFD93D"/>
+      <rect x="15" y="18" width="10" height="15" fill="#6BCF7F" rx="2"/>
+      <rect x="12" y="15" width="5" height="3" fill="#666" rx="1">
+        <animateTransform attributeName="transform" 
+                         attributeType="XML" 
+                         type="rotate"
+                         values="0 14.5 16.5; -30 14.5 16.5; 0 14.5 16.5"
+                         dur="2s"
+                         repeatCount="indefinite"/>
+      </rect>
+      <circle cx="10" cy="16.5" r="2" fill="#333"/>
+      <circle cx="19" cy="16.5" r="2" fill="#333"/>
+    </g>
+    
+    <g id="plank-anim">
+      <circle cx="15" cy="10" r="4" fill="#FFD93D"/>
+      <rect x="10" y="12" width="15" height="6" fill="#6BCF7F" rx="2">
+        <animate attributeName="opacity" values="1; 0.7; 1" dur="3s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="8" y="16" width="4" height="10" fill="#4A90E2" rx="1"/>
+      <rect x="23" y="16" width="4" height="10" fill="#4A90E2" rx="1"/>
+    </g>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="2000" fill="#f8f9fa"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="100" fill="url(#headerGrad)"/>
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">
+    🏋️‍♂️ Həftəlik 4 Günlük Ev Məşq Proqramı
+  </text>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">
+    Güc və Əzələ İnkişafı Üçün
+  </text>
+
+  <!-- Personal Info Card -->
+  <rect x="50" y="120" width="1100" height="120" fill="url(#cardGrad)" rx="10" filter="url(#shadow)"/>
+  <text x="70" y="150" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">👤 Şəxsi Məlumatlar</text>
+  <text x="70" y="180" font-family="Arial, sans-serif" font-size="16" fill="#555">• Boy: 175 sm  • Çəki: 65 kq  • Hədəf: Güc və əzələ inkişafı</text>
+  <text x="70" y="205" font-family="Arial, sans-serif" font-size="16" fill="#555">• Məşq yeri: Ev şəraiti  • Yuxu: 23:00-07:00 (8 saat)</text>
+
+  <!-- Schedule Table -->
+  <rect x="50" y="260" width="1100" height="200" fill="url(#cardGrad)" rx="10" filter="url(#shadow)"/>
+  <text x="70" y="290" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">📅 MƏŞQ CƏDVƏLİ</text>
+  
+  <!-- Table Header -->
+  <rect x="70" y="300" width="200" height="30" fill="#4ECDC4" rx="5"/>
+  <rect x="280" y="300" width="250" height="30" fill="#4ECDC4" rx="5"/>
+  <rect x="540" y="300" width="150" height="30" fill="#4ECDC4" rx="5"/>
+  <rect x="700" y="300" width="100" height="30" fill="#4ECDC4" rx="5"/>
+  
+  <text x="170" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Gün</text>
+  <text x="405" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Məşq Növü</text>
+  <text x="615" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Vaxt</text>
+  <text x="750" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Müddət</text>
+
+  <!-- Table Rows -->
+  <g id="table-rows">
+    <rect x="70" y="335" width="730" height="25" fill="#e3f2fd" rx="3"/>
+    <text x="85" y="352" font-family="Arial, sans-serif" font-size="12" fill="#333">Bazar ertəsi</text>
+    <text x="295" y="352" font-family="Arial, sans-serif" font-size="12" fill="#333">Üst Bədən A</text>
+    <text x="560" y="352" font-family="Arial, sans-serif" font-size="12" fill="#333">19:00-20:30</text>
+    <text x="730" y="352" font-family="Arial, sans-serif" font-size="12" fill="#333">90 dəq</text>
+
+    <rect x="70" y="365" width="730" height="25" fill="#f3e5f5" rx="3"/>
+    <text x="85" y="382" font-family="Arial, sans-serif" font-size="12" fill="#333">Çərşənbə axşamı</text>
+    <text x="295" y="382" font-family="Arial, sans-serif" font-size="12" fill="#333">Aşağı Bədən A</text>
+    <text x="560" y="382" font-family="Arial, sans-serif" font-size="12" fill="#333">19:00-20:30</text>
+    <text x="730" y="382" font-family="Arial, sans-serif" font-size="12" fill="#333">90 dəq</text>
+
+    <rect x="70" y="395" width="730" height="25" fill="#e8f5e8" rx="3"/>
+    <text x="85" y="412" font-family="Arial, sans-serif" font-size="12" fill="#333">Cümə</text>
+    <text x="295" y="412" font-family="Arial, sans-serif" font-size="12" fill="#333">Üst Bədən B</text>
+    <text x="560" y="412" font-family="Arial, sans-serif" font-size="12" fill="#333">19:00-20:30</text>
+    <text x="730" y="412" font-family="Arial, sans-serif" font-size="12" fill="#333">90 dəq</text>
+
+    <rect x="70" y="425" width="730" height="25" fill="#fff3e0" rx="3"/>
+    <text x="85" y="442" font-family="Arial, sans-serif" font-size="12" fill="#333">Şənbə</text>
+    <text x="295" y="442" font-family="Arial, sans-serif" font-size="12" fill="#333">Aşağı Bədən B</text>
+    <text x="560" y="442" font-family="Arial, sans-serif" font-size="12" fill="#333">19:00-20:30</text>
+    <text x="730" y="442" font-family="Arial, sans-serif" font-size="12" fill="#333">90 dəq</text>
+  </g>
+
+  <!-- Rest Days -->
+  <rect x="850" y="300" width="280" height="150" fill="#ffebee" rx="10" stroke="#e57373" stroke-width="2"/>
+  <text x="990" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#d32f2f">⚡ Dincəlmə Günləri</text>
+  <text x="990" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">Çərşənbə</text>
+  <text x="990" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">Cümə axşamı</text>
+  <text x="990" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">Bazar</text>
+
+  <!-- Workout A - Upper Body -->
+  <rect x="50" y="480" width="550" height="350" fill="url(#cardGrad)" rx="10" filter="url(#shadow)"/>
+  <text x="70" y="510" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">💪 ÜST BƏDƏN A (Bazar ertəsi)</text>
+  
+  <g id="upper-body-a">
+    <use href="#dumbbell-anim" x="70" y="520"/>
+    <text x="120" y="540" font-family="Arial, sans-serif" font-size="14" fill="#333">Dambell Bench Press</text>
+    <text x="120" y="555" font-family="Arial, sans-serif" font-size="12" fill="#666">8-12 təkrar × 3 set</text>
+    
+    <use href="#dumbbell-anim" x="70" y="570"/>
+    <text x="120" y="590" font-family="Arial, sans-serif" font-size="14" fill="#333">Dambell Sıraçəkma</text>
+    <text x="120" y="605" font-family="Arial, sans-serif" font-size="12" fill="#666">8-12 təkrar × 3 set</text>
+    
+    <use href="#pushup-anim" x="70" y="620"/>
+    <text x="120" y="640" font-family="Arial, sans-serif" font-size="14" fill="#333">Push-Up</text>
+    <text x="120" y="655" font-family="Arial, sans-serif" font-size="12" fill="#666">Maksimum × 3 set</text>
+    
+    <use href="#dumbbell-anim" x="300" y="520"/>
+    <text x="350" y="540" font-family="Arial, sans-serif" font-size="14" fill="#333">Dambell Çiyin Pressi</text>
+    <text x="350" y="555" font-family="Arial, sans-serif" font-size="12" fill="#666">10-15 təkrar × 3 set</text>
+    
+    <use href="#dumbbell-anim" x="300" y="570"/>
+    <text x="350" y="590" font-family="Arial, sans-serif" font-size="14" fill="#333">Dambell Biceps</text>
+    <text x="350" y="605" font-family="Arial, sans-serif" font-size="12" fill="#666">10-15 təkrar × 3 set</text>
+    
+    <use href="#pushup-anim" x="300" y="620"/>
+    <text x="350" y="640" font-family="Arial, sans-serif" font-size="14" fill="#333">Dips</text>
+    <text x="350" y="655" font-family="Arial, sans-serif" font-size="12" fill="#666">Maksimum × 3 set</text>
+  </g>
+
+  <!-- Workout A - Lower Body -->
+  <rect x="620" y="480" width="530" height="350" fill="url(#cardGrad)" rx="10" filter="url(#shadow)"/>
+  <text x="640" y="510" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">🦵 AŞAĞI BƏDƏN A (Çərşənbə axşamı)</text>
+  
+  <g id="lower-body-a">
+    <use href="#squat-anim" x="640" y="520"/>
+    <text x="690" y="540" font-family="Arial, sans-serif" font-size="14" fill="#333">Ağısqarma (Squat)</text>
+    <text x="690" y="555" font-family="Arial, sans-serif" font-size="12" fill="#666">12-15 təkrar × 4 set</text>
+    
+    <use href="#squat-anim" x="640" y="570"/>
+    <text x="690" y="590" font-family="Arial, sans-serif" font-size="14" fill="#333">Lunge</text>
+    <text x="690" y="605" font-family="Arial, sans-serif" font-size="12" fill="#666">10-12 (hər ayaq) × 3 set</text>
+    
+    <use href="#squat-anim" x="640" y="620"/>
+    <text x="690" y="640" font-family="Arial, sans-serif" font-size="14" fill="#333">Qalxancaq</text>
+    <text x="690" y="655" font-family="Arial, sans-serif" font-size="12" fill="#666">15-20 təkrar × 4 set</text>
+    
+    <use href="#plank-anim" x="880" y="520"/>
+    <text x="930" y="540" font-family="Arial, sans-serif" font-size="14" fill="#333">Qarın Presi</text>
+    <text x="930" y="555" font-family="Arial, sans-serif" font-size="12" fill="#666">15-20 təkrar × 3 set</text>
+    
+    <use href="#plank-anim" x="880" y="570"/>
+    <text x="930" y="590" font-family="Arial, sans-serif" font-size="14" fill="#333">Plank</text>
+    <text x="930" y="605" font-family="Arial, sans-serif" font-size="12" fill="#666">30-60 s × 3 set</text>
+  </g>
+
+  <!-- Workout B - Upper Body -->
+  <rect x="50" y="850" width="550" height="350" fill="url(#cardGrad)" rx="10" filter="url(#shadow)"/>
+  <text x="70" y="880" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">💪 ÜST BƏDƏN B (Cümə)</text>
+  
+  <g id="upper-body-b">
+    <use href="#pushup-anim" x="70" y="890"/>
+    <text x="120" y="910" font-family="Arial, sans-serif" font-size="14" fill="#333">Geniş Push-Up</text>
+    <text x="120" y="925" font-family="Arial, sans-serif" font-size="12" fill="#666">Maksimum × 4 set</text>
+    
+    <use href="#dumbbell-anim" x="70" y="940"/>
+    <text x="120" y="960" font-family="Arial, sans-serif" font-size="14" fill="#333">Dambell Tərəf qaldırma</text>
+    <text x="120" y="975" font-family="Arial, sans-serif" font-size="12" fill="#666">12-15 təkrar × 3 set</text>
+    
+    <use href="#dumbbell-anim" x="70" y="990"/>
+    <text x="120" y="1010" font-family="Arial, sans-serif" font-size="14" fill="#333">Reverse Grip Sıraçəkma</text>
+    <text x="120" y="1025" font-family="Arial, sans-serif" font-size="12" fill="#666">10-12 təkrar × 3 set</text>
+    
+    <use href="#dumbbell-anim" x="300" y="890"/>
+    <text x="350" y="910" font-family="Arial, sans-serif" font-size="14" fill="#333">Çiyin qaldırma</text>
+    <text x="350" y="925" font-family="Arial, sans-serif" font-size="12" fill="#666">10-15 təkrar × 3 set</text>
+    
+    <use href="#dumbbell-anim" x="300" y="940"/>
+    <text x="350" y="960" font-family="Arial, sans-serif" font-size="14" fill="#333">Triceps Extension</text>
+    <text x="350" y="975" font-family="Arial, sans-serif" font-size="12" fill="#666">12-15 təkrar × 3 set</text>
+    
+    <use href="#plank-anim" x="300" y="990"/>
+    <text x="350" y="1010" font-family="Arial, sans-serif" font-size="14" fill="#333">Superman</text>
+    <text x="350" y="1025" font-family="Arial, sans-serif" font-size="12" fill="#666">12-15 təkrar × 3 set</text>
+  </g>
+
+  <!-- Workout B - Lower Body -->
+  <rect x="620" y="850" width="530" height="350" fill="url(#cardGrad)" rx="10" filter="url(#shadow)"/>
+  <text x="640" y="880" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">🦵 AŞAĞI BƏDƏN B (Şənbə)</text>
+  
+  <g id="lower-body-b">
+    <use href="#squat-anim" x="640" y="890"/>
+    <text x="690" y="910" font-family="Arial, sans-serif" font-size="14" fill="#333">Bulgarian Split Squat</text>
+    <text x="690" y="925" font-family="Arial, sans-serif" font-size="12" fill="#666">10-12 (hər ayaq) × 3 set</text>
+    
+    <use href="#squat-anim" x="640" y="940"/>
+    <text x="690" y="960" font-family="Arial, sans-serif" font-size="14" fill="#333">Qalça qaldırma</text>
+    <text x="690" y="975" font-family="Arial, sans-serif" font-size="12" fill="#666">12-15 təkrar × 4 set</text>
+    
+    <use href="#squat-anim" x="640" y="990"/>
+    <text x="690" y="1010" font-family="Arial, sans-serif" font-size="14" fill="#333">Yan qaldırma</text>
+    <text x="690" y="1025" font-family="Arial, sans-serif" font-size="12" fill="#666">12-15 təkrar × 3 set</text>
+    
+    <use href="#plank-anim" x="880" y="890"/>
+    <text x="930" y="910" font-family="Arial, sans-serif" font-size="14" fill="#333">Yan Plank</text>
+    <text x="930" y="925" font-family="Arial, sans-serif" font-size="12" fill="#666">20-30 s (hər tərəf) × 3 set</text>
+    
+    <use href="#plank-anim" x="880" y="940"/>
+    <text x="930" y="960" font-family="Arial, sans-serif" font-size="14" fill="#333">Russian Twist</text>
+    <text x="930" y="975" font-family="Arial, sans-serif" font-size="12" fill="#666">20 (10+10) × 3 set</text>
+  </g>
+
+  <!-- Optimal Time Section -->
+  <rect x="50" y="1220" width="1100" height="150" fill="#e8f5e8" rx="10" filter="url(#shadow)"/>
+  <text x="70" y="1250" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2e7d32">🕒 MƏŞQ ÜÇÜN ƏN YAXŞI VAXT</text>
+  <text x="70" y="1275" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#4caf50">Axşam saat 19:00-21:00</text>
+  <text x="70" y="1300" font-family="Arial, sans-serif" font-size="14" fill="#555">• Bədənin gün ərzində hazır olması  • Hormon səviyyələrinin optimal olması</text>
+  <text x="70" y="1320" font-family="Arial, sans-serif" font-size="14" fill="#555">• Yuxu keyfiyyətini yaxşılaşdırması  • Stress azaldılması</text>
+  <text x="70" y="1345" font-family="Arial, sans-serif" font-size="14" fill="#d84315">⏰ Məşqdən 1-1.5 saat əvvəl yemək, 30 dəq əvvəl yüngül karbohidrat</text>
+
+  <!-- Sleep Section -->
+  <rect x="50" y="1390" width="1100" height="120" fill="#e3f2fd" rx="10" filter="url(#shadow)"/>
+  <text x="70" y="1420" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1976d2">🛌 YUXU REJİMİ (23:00 - 07:00)</text>
+  <text x="70" y="1445" font-family="Arial, sans-serif" font-size="14" fill="#555">✅ Hər gün eyni saatda yatmaq/oyanmaq  • Yatmadan 1 saat əvvəl ekranlardan uzaq</text>
+  <text x="70" y="1465" font-family="Arial, sans-serif" font-size="14" fill="#555">✅ Otağı qaranlıq və sərin saxlamaq  • Gündüz 20 dəqiqədən artıq yuxulamamaq</text>
+
+  <!-- Recommendations -->
+  <rect x="50" y="1530" width="1100" height="180" fill="#fff3e0" rx="10" filter="url(#shadow)"/>
+  <text x="70" y="1560" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#f57c00">🎯 ƏSAS TÖVSİYƏLƏR</text>
+  
+  <circle cx="90" cy="1580" r="5" fill="#4caf50">
+    <animate attributeName="r" values="5; 8; 5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="110" y="1585" font-family="Arial, sans-serif" font-size="14" fill="#333">1. İstiləşmə (Hər məşqdən əvvəl 10 dəq)</text>
+  
+  <circle cx="90" cy="1605" r="5" fill="#2196f3">
+    <animate attributeName="r" values="5; 8; 5" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <text x="110" y="1610" font-family="Arial, sans-serif" font-size="14" fill="#333">2. Soyuma (Hər məşqdən sonra 10 dəq)</text>
+  
+  <circle cx="90" cy="1630" r="5" fill="#ff9800">
+    <animate attributeName="r" values="5; 8; 5" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <text x="110" y="1635" font-family="Arial, sans-serif" font-size="14" fill="#333">3. Proqressiv yüklənmə (Həftədə 1-2 təkrar artırmaq)</text>
+  
+  <circle cx="90" cy="1655" r="5" fill="#9c27b0">
+    <animate attributeName="r" values="5; 8; 5" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  <text x="110" y="1660" font-family="Arial, sans-serif" font-size="14" fill="#333">4. Düzgün qidalanma (Gündə 2-3 litr su)</text>
+  
+  <circle cx="90" cy="1680" r="5" fill="#607d8b">
+    <animate attributeName="r" values="5; 8; 5" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <text x="110" y="1685" font-family="Arial, sans-serif" font-size="14" fill="#333">5. Kifayət qədər yuxu (7-8 saat)</text>
+
+  <!-- Footer -->
+  <rect x="0" y="1750" width="1200" height="80" fill="url(#headerGrad)"/>
+  <text x="600" y="1780" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">
+    💪 Uğurlar və Güclü Məşqlər! 💪
+  </text>
+  <text x="600" y="1810" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">
+    Düzgün texnika və ardıcıllıq açarıdır
+  </text>
+</svg>
