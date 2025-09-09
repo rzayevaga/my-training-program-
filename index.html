@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💪 Premium Məşq Proqramı</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-color: #00f5ff;
+            --success-color: #00ff88;
+            --warning-color: #ffaa00;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Optimized Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, #667eea15 0%, transparent 40%),
+                        radial-gradient(circle at 80% 20%, #764ba215 0%, transparent 40%),
+                        radial-gradient(circle at 40% 80%, #f093fb15 0%, transparent 40%);
+            will-change: transform;
+            animation: bgMove 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgMove {
+            0% { transform: translate3d(0px, 0px, 0); }
+            100% { transform: translate3d(30px, -20px, 0); }
+        }
+
+        /* Fast Loading Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOut 0.5s ease-in-out 1.5s forwards;
+        }
+
+        .loading-logo {
+            font-size: 3rem;
+            animation: loadPulse 1s ease-in-out infinite;
+        }
+
+        .loading-text {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            animation: slideUp 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes loadPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translate3d(0, 30px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+
+        /* Header */
+        .header {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease-out 2s both;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-item a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-item a:hover {
+            color: var(--accent-color);
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translate3d(0, -50px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            animation: fadeInUp 0.8s ease-out 2.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 50px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Optimized Glass Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+            will-change: transform;
+        }
+
+        .glass-card:hover {
+            transform: translate3d(0, -5px, 0);
+        }
+
+        /* Personal Info Grid */
+        .personal-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .info-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .info-item:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Schedule Table */
+        .schedule-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            margin: 2rem 0;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 1rem;
+            text-align: left;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .schedule-table th {
+            background: var(--primary-gradient);
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+
+        .schedule-table tr {
+            transition: transform 0.2s ease;
+        }
+
+        .schedule-table tr:hover td {
+            background: rgba(255, 255, 255, 0.08);
+            transform: scale(1.01);
+        }
+
+        /* Workout Cards */
+        .workout-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .workout-card {
+            background: var(--glass-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .workout-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .workout-icon {
+            margin-right: 1rem;
+            font-size: 1.8rem;
+        }
+
+        /* Real Exercise Animations */
+        .exercise-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .exercise-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .exercise-item:hover {
+            transform: translate3d(8px, 0, 0);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-color);
+        }
+
+        /* Real Animation Icons */
+        .exercise-animation {
+            width: 50px;
+            height: 50px;
+            margin-right: 1rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Push-up Animation */
+        .pushup-anim {
+            width: 40px;
+            height: 40px;
+        }
+
+        .pushup-body {
+            width: 30px;
+            height: 8px;
+            background: var(--success-color);
+            border-radius: 4px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+            animation: pushupMove 2s ease-in-out infinite;
+        }
+
+        .pushup-head {
+            width: 8px;
+            height: 8px;
+            background: var(--warning-color);
+            border-radius: 50%;
+            position: absolute;
+            top: 30%;
+            left: 45%;
+            animation: pushupMove 2s ease-in-out infinite;
+        }
+
+        @keyframes pushupMove {
+            0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+            50% { transform: translate(-50%, -50%) translateY(-8px); }
+        }
+
+        /* Squat Animation */
+        .squat-anim {
+            width: 40px;
+            height: 40px;
+        }
+
+        .squat-body {
+            width: 8px;
+            height: 20px;
+            background: var(--success-color);
+            border-radius: 4px;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform-origin: bottom;
+            animation: squatMove 2.5s ease-in-out infinite;
+        }
+
+        .squat-legs {
+            width: 6px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 3px;
+            position: absolute;
+            bottom: 20%;
+            left: 45%;
+            animation: squatMove 2.5s ease-in-out infinite;
+        }
+
+        .squat-legs::after {
+            content: '';
+            width: 6px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 3px;
+            position: absolute;
+            left: 8px;
+        }
+
+        @keyframes squatMove {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* Dumbbell Animation */
+        .dumbbell-anim {
+            width: 40px;
+            height: 40px;
+        }
+
+        .dumbbell-bar {
+            width: 20px;
+            height: 3px;
+            background: #666;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+            animation: dumbbellMove 2s ease-in-out infinite;
+        }
+
+        .dumbbell-weight1 {
+            width: 6px;
+            height: 8px;
+            background: #333;
+            border-radius: 2px;
+            position: absolute;
+            left: -3px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .dumbbell-weight2 {
+            width: 6px;
+            height: 8px;
+            background: #333;
+            border-radius: 2px;
+            position: absolute;
+            right: -3px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .dumbbell-arm {
+            width: 3px;
+            height: 15px;
+            background: var(--success-color);
+            position: absolute;
+            top: 20%;
+            left: 48%;
+            transform-origin: bottom;
+            animation: dumbbellMove 2s ease-in-out infinite;
+        }
+
+        @keyframes dumbbellMove {
+            0%, 100% { transform: translateX(-50%) rotate(0deg); }
+            50% { transform: translateX(-50%) rotate(-45deg); }
+        }
+
+        /* Plank Animation */
+        .plank-anim {
+            width: 40px;
+            height: 40px;
+        }
+
+        .plank-body {
+            width: 25px;
+            height: 6px;
+            background: var(--success-color);
+            border-radius: 3px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: plankHold 3s ease-in-out infinite;
+        }
+
+        .plank-head {
+            width: 6px;
+            height: 6px;
+            background: var(--warning-color);
+            border-radius: 50%;
+            position: absolute;
+            top: 40%;
+            left: 35%;
+            animation: plankHold 3s ease-in-out infinite;
+        }
+
+        @keyframes plankHold {
+            0%, 80%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            90% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        /* Lunge Animation */
+        .lunge-anim {
+            width: 40px;
+            height: 40px;
+        }
+
+        .lunge-body {
+            width: 8px;
+            height: 16px;
+            background: var(--success-color);
+            border-radius: 4px;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform-origin: bottom;
+            animation: lungeMove 3s ease-in-out infinite;
+        }
+
+        .lunge-leg1 {
+            width: 5px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 2px;
+            position: absolute;
+            bottom: 25%;
+            left: 45%;
+            transform-origin: top;
+            animation: lungeLeg1 3s ease-in-out infinite;
+        }
+
+        .lunge-leg2 {
+            width: 5px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 2px;
+            position: absolute;
+            bottom: 25%;
+            left: 55%;
+            transform-origin: top;
+            animation: lungeLeg2 3s ease-in-out infinite;
+        }
+
+        @keyframes lungeMove {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(5px); }
+        }
+
+        @keyframes lungeLeg1 {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(30deg); }
+        }
+
+        @keyframes lungeLeg2 {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-20deg); }
+        }
+
+        .exercise-details h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .exercise-details p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Time and Sleep Sections */
+        .time-section {
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.08), rgba(0, 255, 136, 0.08));
+            border: 1px solid var(--accent-color);
+        }
+
+        .sleep-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+            border: 1px solid var(--primary-gradient);
+        }
+
+        .recommendations {
+            background: linear-gradient(135deg, rgba(255, 170, 0, 0.08), rgba(245, 87, 108, 0.08));
+            border: 1px solid var(--warning-color);
+        }
+
+        .recommendation-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .recommendation-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .recommendation-item:hover {
+            transform: translate3d(5px, 0, 0);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .rec-icon {
+            width: 35px;
+            height: 35px;
+            margin-right: 1rem;
+            border-radius: 50%;
+            background: var(--success-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Rest Days */
+        .rest-days {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 87, 108, 0.08), rgba(240, 147, 251, 0.08));
+            border: 1px solid #f5576c;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .rest-day-item {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(245, 87, 108, 0.15);
+            border-radius: 20px;
+            animation: restFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes restFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-2px); }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 4rem;
+        }
+
+        .footer h2 {
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        /* Optimized Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 3px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .workout-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-content {
+                padding: 1rem;
+            }
+            
+            .personal-info {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-logo">💪</div>
+        <div class="loading-text">Premium Məşq Proqramı Yüklənir...</div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">💪 FitPro</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#schedule">📅 Cədvəl</a></li>
+                <li class="nav-item"><a href="#workouts">🏋️ Məşqlər</a></li>
+                <li class="nav-item"><a href="#tips">💡 Məsləhətlər</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>🏋️‍♂️ Həftəlik 4 Günlük Ev Məşq Proqramı</h1>
+            <p class="hero-subtitle">Güc və Əzələ İnkişafı Üçün Premium Proqram</p>
+        </section>
+
+        <!-- Personal Info -->
+        <section class="glass-card">
+            <h2>👤 Şəxsi Məlumatlar</h2>
+            <div class="personal-info">
+                <div class="info-item">
+                    <div class="info-icon">📏</div>
+                    <h3>Boy</h3>
+                    <p>175 sm</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">⚖️</div>
+                    <h3>Çəki</h3>
+                    <p>65 kq</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🎯</div>
+                    <h3>Hədəf</h3>
+                    <p>Güc və əzələ inkişafı</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🏠</div>
+                    <h3>Məşq yeri</h3>
+                    <p>Ev şəraiti</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">😴</div>
+                    <h3>Yuxu rejimi</h3>
+                    <p>23:00 - 07:00 (8 saat)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule -->
+        <section class="glass-card" id="schedule">
+            <h2>📅 MƏŞQ CƏDVƏLİ</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Gün</th>
+                        <th>Məşq Növü</th>
+                        <th>Optimal Vaxt</th>
+                        <th>Müddət</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bazar ertəsi</td>
+                        <td>Üst Bədən A</td>
+                        <td>19:00-20:30</td>
+                        <td>90 dəq</td>
+                    </tr>
+                    <tr>
+                        <td>Çərşənbə axşamı</td>
+                        <td>Aşağı Bədən A</td>
+                        <td>19:00-20:30</td>
+                        <td>90 dəq</td>
+                    </tr>
+                    <tr>
+                        <td>Cümə</td>
+                        <td>Üst Bədən B</td>
+                        <td>19:00-20:30</td>
+                        <td>90 dəq</td>
+                    </tr>
+                    <tr>
+                        <td>Şənbə</td>
+                        <td>Aşağı Bədən B</td>
+                        <td>19:00-20:30</td>
+                        <td>90 dəq</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="rest-days">
+                <h3>⚡ Dincəlmə Günləri</h3>
+                <div class="rest-day-item">Çərşənbə</div>
+                <div class="rest-day-item">Cümə axşamı</div>
+                <div class="rest-day-item">Bazar</div>
+            </div>
+        </section>
+
+        <!-- Workouts -->
+        <section id="workouts">
+            <div class="workout-grid">
+                <!-- Upper Body A -->
+                <div class="workout-card glass-card">
+                    <div class="workout-header">
+                        <div class="workout-icon">💪</div>
+                        ÜST BƏDƏN A (Bazar ertəsi)
+                    </div>
+                    <div class="exercise-list">
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="dumbbell-anim">
+                                    <div class="dumbbell-bar">
+                                        <div class="dumbbell-weight1"></div>
+                                        <div class="dumbbell-weight2"></div>
+                                    </div>
+                                    <div class="dumbbell-arm"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Dambell Bench Press</h4>
+                                <p>8-12 təkrar × 3 set | 60-90s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="dumbbell-anim">
+                                    <div class="dumbbell-bar">
+                                        <div class="dumbbell-weight1"></div>
+                                        <div class="dumbbell-weight2"></div>
+                                    </div>
+                                    <div class="dumbbell-arm"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Dambell Sıraçəkma</h4>
+                                <p>8-12 təkrar × 3 set | 60-90s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="pushup-anim">
+                                    <div class="pushup-head"></div>
+                                    <div class="pushup-body"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Push-Up</h4>
+                                <p>Maksimum × 3 set | 60s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="dumbbell-anim">
+                                    <div class="dumbbell-bar">
+                                        <div class="dumbbell-weight1"></div>
+                                        <div class="dumbbell-weight2"></div>
+                                    </div>
+                                    <div class="dumbbell-arm"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Dambell Çiyin Pressi</h4>
+                                <p>10-15 təkrar × 3 set | 60s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="dumbbell-anim">
+                                    <div class="dumbbell-bar">
+                                        <div class="dumbbell-weight1"></div>
+                                        <div class="dumbbell-weight2"></div>
+                                    </div>
+                                    <div class="dumbbell-arm"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Dambell Biceps Qatlaması</h4>
+                                <p>10-15 təkrar × 3 set | 45-60s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="pushup-anim">
+                                    <div class="pushup-head"></div>
+                                    <div class="pushup-body"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Dips</h4>
+                                <p>Maksimum × 3 set | 45-60s dincəlmə</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lower Body A -->
+                <div class="workout-card glass-card">
+                    <div class="workout-header">
+                        <div class="workout-icon">🦵</div>
+                        AŞAĞI BƏDƏN A (Çərşənbə axşamı)
+                    </div>
+                    <div class="exercise-list">
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="squat-anim">
+                                    <div class="squat-body"></div>
+                                    <div class="squat-legs"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Ağısqarma (Squat)</h4>
+                                <p>12-15 təkrar × 4 set | 60-90s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="lunge-anim">
+                                    <div class="lunge-body"></div>
+                                    <div class="lunge-leg1"></div>
+                                    <div class="lunge-leg2"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Lunge</h4>
+                                <p>10-12 (hər ayaq) × 3 set | 60s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="squat-anim">
+                                    <div class="squat-body"></div>
+                                    <div class="squat-legs"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Qalxancaq</h4>
+                                <p>15-20 təkrar × 4 set | 45s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="plank-anim">
+                                    <div class="plank-head"></div>
+                                    <div class="plank-body"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Qarın Presi</h4>
+                                <p>15-20 təkrar × 3 set | 45s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="plank-anim">
+                                    <div class="plank-head"></div>
+                                    <div class="plank-body"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Plank</h4>
+                                <p>30-60s × 3 set | 45s dincəlmə</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upper Body B -->
+                <div class="workout-card glass-card">
+                    <div class="workout-header">
+                        <div class="workout-icon">💪</div>
+                        ÜST BƏDƏN B (Cümə)
+                    </div>
+                    <div class="exercise-list">
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="pushup-anim">
+                                    <div class="pushup-head"></div>
+                                    <div class="pushup-body"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Geniş Push-Up</h4>
+                                <p>Maksimum × 4 set | 60s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="dumbbell-anim">
+                                    <div class="dumbbell-bar">
+                                        <div class="dumbbell-weight1"></div>
+                                        <div class="dumbbell-weight2"></div>
+                                    </div>
+                                    <div class="dumbbell-arm"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Dambell Tərəf qaldırma</h4>
+                                <p>12-15 təkrar × 3 set | 45s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="dumbbell-anim">
+                                    <div class="dumbbell-bar">
+                                        <div class="dumbbell-weight1"></div>
+                                        <div class="dumbbell-weight2"></div>
+                                    </div>
+                                    <div class="dumbbell-arm"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Reverse Grip Sıraçəkma</h4>
+                                <p>10-12 təkrar × 3 set | 60s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="dumbbell-anim">
+                                    <div class="dumbbell-bar">
+                                        <div class="dumbbell-weight1"></div>
+                                        <div class="dumbbell-weight2"></div>
+                                    </div>
+                                    <div class="dumbbell-arm"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Çiyin qaldırma</h4>
+                                <p>10-15 təkrar × 3 set | 45s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="dumbbell-anim">
+                                    <div class="dumbbell-bar">
+                                        <div class="dumbbell-weight1"></div>
+                                        <div class="dumbbell-weight2"></div>
+                                    </div>
+                                    <div class="dumbbell-arm"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Triceps Extension</h4>
+                                <p>12-15 təkrar × 3 set | 45s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="plank-anim">
+                                    <div class="plank-head"></div>
+                                    <div class="plank-body"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Superman</h4>
+                                <p>12-15 təkrar × 3 set | 45s dincəlmə</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lower Body B -->
+                <div class="workout-card glass-card">
+                    <div class="workout-header">
+                        <div class="workout-icon">🦵</div>
+                        AŞAĞI BƏDƏN B (Şənbə)
+                    </div>
+                    <div class="exercise-list">
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="lunge-anim">
+                                    <div class="lunge-body"></div>
+                                    <div class="lunge-leg1"></div>
+                                    <div class="lunge-leg2"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Bulgarian Split Squat</h4>
+                                <p>10-12 (hər ayaq) × 3 set | 60-90s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="squat-anim">
+                                    <div class="squat-body"></div>
+                                    <div class="squat-legs"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Qalça qaldırma</h4>
+                                <p>12-15 təkrar × 4 set | 60s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="lunge-anim">
+                                    <div class="lunge-body"></div>
+                                    <div class="lunge-leg1"></div>
+                                    <div class="lunge-leg2"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Yan qaldırma</h4>
+                                <p>12-15 təkrar × 3 set | 45s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="plank-anim">
+                                    <div class="plank-head"></div>
+                                    <div class="plank-body"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Yan Plank</h4>
+                                <p>20-30s (hər tərəf) × 3 set | 30s dincəlmə</p>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-animation">
+                                <div class="plank-anim">
+                                    <div class="plank-head"></div>
+                                    <div class="plank-body"></div>
+                                </div>
+                            </div>
+                            <div class="exercise-details">
+                                <h4>Russian Twist</h4>
+                                <p>20 (10+10) × 3 set | 45s dincəlmə</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Optimal Time -->
+        <section class="glass-card time-section">
+            <h2>🕒 MƏŞQ ÜÇÜN ƏN YAXŞI VAXT</h2>
+            <div style="text-align: center; margin: 2rem 0;">
+                <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">
+                    ⏰ Axşam saat 19:00-21:00
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                    <div class="info-item">
+                        <div class="info-icon">💪</div>
+                        <p>Bədənin gün ərzində hazır olması</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🧬</div>
+                        <p>Hormon səviyyələrinin optimal olması</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">😴</div>
+                        <p>Yuxu keyfiyyətini yaxşılaşdırması</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">😌</div>
+                        <p>Stress azaldılması</p>
+                    </div>
+                </div>
+            </div>
+            <div style="background: rgba(255, 170, 0, 0.08); padding: 1.5rem; border-radius: 15px; border: 1px solid var(--warning-color); margin-top: 2rem;">
+                <h3>⏰ Məşqdən əvvəl:</h3>
+                <p>• Ən azı 1-1.5 saat əvvəl yemək yeyin</p>
+                <p>• Məşqdən 30 dəq əvvəl yüngül karbohidrat qəbulu</p>
+            </div>
+        </section>
+
+        <!-- Sleep Section -->
+        <section class="glass-card sleep-section">
+            <h2>🛌 YUXU REJİMİ (23:00 - 07:00)</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                <div class="info-item">
+                    <div class="info-icon">⏰</div>
+                    <h4>Sabit Rejim</h4>
+                    <p>Hər gün eyni saatda yatmaq/oyanmaq</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📱</div>
+                    <h4>Ekranlardan Uzaq</h4>
+                    <p>Yatmadan 1 saat əvvəl</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🌙</div>
+                    <h4>Uyğun Mühit</h4>
+                    <p>Otağı qaranlıq və sərin saxlamaq</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">⏳</div>
+                    <h4>Gündüz Yuxusu</h4>
+                    <p>20 dəqiqədən artıq yuxulamamaq</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section class="glass-card recommendations" id="tips">
+            <h2>🎯 ƏSAS TÖVSİYƏLƏR</h2>
+            <div class="recommendation-list">
+                <div class="recommendation-item">
+                    <div class="rec-icon">🔥</div>
+                    <div>
+                        <h4>1. İstiləşmə</h4>
+                        <p>Hər məşqdən əvvəl 10 dəqiqə mütləq</p>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <div class="rec-icon">❄️</div>
+                    <div>
+                        <h4>2. Soyuma</h4>
+                        <p>Hər məşqdən sonra 10 dəqiqə uzanma</p>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <div class="rec-icon">📈</div>
+                    <div>
+                        <h4>3. Proqressiv yüklənmə</h4>
+                        <p>Həftədə 1-2 təkrar artırmaq</p>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <div class="rec-icon">🥗</div>
+                    <div>
+                        <h4>4. Düzgün qidalanma</h4>
+                        <p>Gündə 2-3 litr su içmək</p>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <div class="rec-icon">😴</div>
+                    <div>
+                        <h4>5. Kifayət qədər yuxu</h4>
+                        <p>7-8 saat keyfiyyətli yuxu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h2>💪 Uğurlar və Güclü Məşqlər! 💪</h2>
+        <p>Düzgün texnika və ardıcıllıq açarıdır</p>
+        <p style="margin-top: 1rem; color: var(--text-secondary);">Premium FitPro © 2024 - Sizin sağlamlığınız bizim prioritetimizdir</p>
+    </footer>
+
+    <script>
+        // Fast loading optimization
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const loadingScreen = document.querySelector('.loading-screen');
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.visibility = 'hidden';
+            }, 2000);
+        });
+
+        // Optimized smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Lightweight hover effects
+        document.querySelectorAll('.exercise-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translate3d(10px, 0, 0)';
+                this.style.borderColor = 'var(--accent-color)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translate3d(0, 0, 0)';
+                this.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+            });
+        });
+
+        // Performance optimized intersection observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translate3d(0, 0, 0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements after page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.querySelectorAll('.glass-card, .workout-card').forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translate3d(0, 20px, 0)';
+                    card.style.transition = 'all 0.6s ease-out';
+                    observer.observe(card);
+                });
+            }, 2500);
+        });
+
+        // Real-time workout time indicator
+        function updateWorkoutTime() {
+            const now = new Date();
+            const hours = now.getHours();
+            const isWorkoutTime = hours >= 19 && hours <= 21;
+            
+            const timeSection = document.querySelector('.time-section');
+            if (isWorkoutTime && timeSection) {
+                timeSection.style.border = '2px solid var(--success-color)';
+                timeSection.style.background = 'linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 245, 255, 0.1))';
+            }
+        }
+
+        updateWorkoutTime();
+        setInterval(updateWorkoutTime, 60000);
+
+        // Performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', function() {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    console.log('Sayt yüklənmə vaxtı:', Math.round(perfData.loadEventEnd - perfData.fetchStart) + 'ms');
+                }, 1000);
+            });
+        }
+
+        // Memory optimization - remove unused elements
+        setTimeout(() => {
+            document.querySelector('.loading-screen')?.remove();
+        }, 5000);
+    </script>
+</body>
+</html>
